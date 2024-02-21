@@ -10,9 +10,8 @@ RED = (255, 0, 0)
 PASTEL_BLUE = (199, 222, 255)
 PASTEL_RED = (245, 154, 142)
 
-couleurs = [BLUE,BLACK,WHITE,RED]
-couleur_actuel=couleurs[0]
-
+couleurs = [BLACK,BLUE,BLACK,WHITE,RED] #Liste pour stocker chaque couleurs cite
+couleur_actuel=couleurs[0] #permet de garder la couleur actuel de base le noir
 
 """parrametres de l'ecran et affichage"""
 #Paramètres
@@ -33,10 +32,10 @@ rayon_cercle = 20
 position_x_cercle = largeur_fenetre // 2
 position_y_cercle = 50
 #mouvement ball
-vitesse_x = 5
+vitesse_x = 5 #vitesse de chute en pos_x
 gravite = 4  # gravite
 choix_position_fait = False
-cercles_fixes = []#Liste pour stocker les positions des balles
+cercles_fixes = [] #Liste pour stocker les positions des balles
 
 """parrametres du sol"""
 base = hauteur_fenetre - 15 #Position base
@@ -66,7 +65,7 @@ while running:
             # Ajouter la position actuelle du cercle à la liste des cercles fixes
             cercles_fixes.append([(position_x_cercle, base - rayon_cercle) ,couleur_actuel])
             # Réinitialiser la position du prochain cercle
-            couleur_actuel=random.choice(couleurs)
+            couleur_actuel=random.choice(couleurs) #choisis une couleur au hasard de la list
             position_x_cercle = largeur_fenetre // 2
             position_y_cercle = 50
             choix_position_fait = False
@@ -75,18 +74,18 @@ while running:
 
     screen.fill(PASTEL_BLUE)
 
-    #sol
+    #traçage de la plateform sol 
     pygame.draw.rect(screen, PASTEL_RED, (0, base, largeur_fenetre, hauteur_fenetre - base))
 
     # Fixer les balles au sol:
     for cercle_fixe in cercles_fixes:
         pygame.draw.circle(screen, cercle_fixe[1], cercle_fixe[0], rayon_cercle)
 
-    # cercle en mouvement
+    #cercle en mouvement
     pygame.draw.circle(screen, couleur_actuel, (position_x_cercle, int(position_y_cercle)), rayon_cercle)
 
     pygame.display.flip() #mise a jour l'affichage
 
-    clock.tick(60) #Limite le nombre d'images par seconde
+    clock.tick(60) #Limite le nombre d'images par 60 seconde
 
 pygame.quit()
