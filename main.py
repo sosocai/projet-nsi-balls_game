@@ -7,11 +7,14 @@ BLACK = (0, 0, 0)
 WHITE = (255, 255, 255)
 BLUE = (47, 54, 153)
 RED = (255, 0, 0)
+GREEN = (0,128,0)
+YELLOW = (255,255,0)
 PASTEL_BLUE = (199, 222, 255)
 PASTEL_RED = (245, 154, 142)
 
-couleurs = [BLACK,BLUE,BLACK,WHITE,RED] #Liste pour stocker chaque couleurs cite
-couleur_actuel=couleurs[0] #permet de garder la couleur actuel de base le noir
+couleurs = [BLACK,YELLOW,BLUE,GREEN,WHITE,RED] #Liste pour stocker chaque couleurs cite
+couleur_actuel=couleurs[0] #permet de garder la couleur actuel de base ici noir
+
 
 """parrametres de l'ecran et affichage"""
 #Paramètres
