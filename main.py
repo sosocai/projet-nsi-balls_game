@@ -1,14 +1,14 @@
 import pygame
 import sys
-
+import random
 #couleur
 BLUE = (47, 54, 153)
 PASTEL_BLUE = (199, 222, 255)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 PASTEL_RED = (245, 154, 142)
-
-
+couleurs = [BLUE,BLACK,WHITE]
+couleur_actuel=couleurs[0]
 
 """parrametres de l'ecran et affichage"""
 #Paramètres
@@ -60,8 +60,9 @@ while running:
             position_y_cercle += gravite
         else:
             # Ajouter la position actuelle du cercle à la liste des cercles fixes
-            cercles_fixes.append((position_x_cercle, base - rayon_cercle))
+            cercles_fixes.append([(position_x_cercle, base - rayon_cercle) ,couleur_actuel])
             # Réinitialiser la position du prochain cercle
+            couleur_actuel=random.choice(couleurs)
             position_x_cercle = largeur_fenetre // 2
             position_y_cercle = 50
             choix_position_fait = False
@@ -75,10 +76,10 @@ while running:
 
     # Fixer les balles au sol:
     for cercle_fixe in cercles_fixes:
-        pygame.draw.circle(screen, BLACK, cercle_fixe, rayon_cercle)
+        pygame.draw.circle(screen, cercle_fixe[1], cercle_fixe[0], rayon_cercle)
 
     # cercle en mouvement
-    pygame.draw.circle(screen, BLACK, (position_x_cercle, int(position_y_cercle)), rayon_cercle)
+    pygame.draw.circle(screen, couleur_actuel, (position_x_cercle, int(position_y_cercle)), rayon_cercle)
 
     pygame.display.flip() #mise a jour l'affichage
 
