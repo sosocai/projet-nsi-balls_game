@@ -69,23 +69,3 @@ while running:
             position_x_cercle = largeur_fenetre // 2
             position_y_cercle = 50
             choix_position_fait = False
-
-    
-
-    screen.fill(PASTEL_BLUE)
-
-    #traçage de la plateform sol 
-    pygame.draw.rect(screen, PASTEL_RED, (0, base, largeur_fenetre, hauteur_fenetre - base))
-
-    # Fixer les balles au sol:
-    for cercle_fixe in cercles_fixes:
-        pygame.draw.circle(screen, cercle_fixe[1], cercle_fixe[0], rayon_cercle)
-
-    #cercle en mouvement
-    pygame.draw.circle(screen, couleur_actuel, (position_x_cercle, int(position_y_cercle)), rayon_cercle)
-
-    pygame.display.flip() #mise a jour l'affichage
-
-    clock.tick(60) #Limite le nombre d'images par 60 seconde
-
-pygame.quit()
