@@ -1,14 +1,18 @@
 import pygame
 import sys
 import random
+
 #couleur
-BLUE = (47, 54, 153)
-PASTEL_BLUE = (199, 222, 255)
-WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
+WHITE = (255, 255, 255)
+BLUE = (47, 54, 153)
+RED = (255, 0, 0)
+PASTEL_BLUE = (199, 222, 255)
 PASTEL_RED = (245, 154, 142)
-couleurs = [BLUE,BLACK,WHITE]
+
+couleurs = [BLUE,BLACK,WHITE,RED]
 couleur_actuel=couleurs[0]
+
 
 """parrametres de l'ecran et affichage"""
 #Paramètres
